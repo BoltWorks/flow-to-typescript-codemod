@@ -245,7 +245,7 @@ describe("transform declarations", () => {
 
   it("converts $Shape to Partial", async () => {
     const src = `type Test = $Shape<T>;`;
-    const expected = `type Test = Partial<T>;`;
+    const expected = `type Test = T;`;
     expect(await transform(src)).toBe(expected);
   });
 

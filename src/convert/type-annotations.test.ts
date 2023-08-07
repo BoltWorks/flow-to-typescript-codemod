@@ -199,7 +199,7 @@ describe("transform type annotations", () => {
     const test = React.useRef<$Shape<T> | $ReadOnly<T>>(null);
     `;
     const expected = dedent`
-    const test = React.useRef<Partial<T> | Readonly<T>>(null);
+    const test = React.useRef<T | Readonly<T>>(null);
     `;
     expect(await transform(src)).toBe(expected);
   });

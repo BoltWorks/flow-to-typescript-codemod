@@ -79,7 +79,7 @@ describe("type at position", () => {
 
   it("converts utility types", async () => {
     const src = `function fn(a) {return a};`;
-    const expected = `function fn(a: Partial<Foo>) {return a};`;
+    const expected = `function fn(a: Foo) {return a};`;
     mockedExecuteFlowTypeAtPos.mockResolvedValue('{"type": "$Shape<Foo>"}');
     expect(await transform(src)).toBe(expected);
   });
@@ -108,7 +108,7 @@ describe("type at position", () => {
       return a;
     };`;
     const expected = dedent`function fn(a) {
-      type Foo = Partial<Test>;
+      type Foo = Test;
       return a;
     };`;
     mockedExecuteFlowTypeAtPos.mockRejectedValue("Command failed");

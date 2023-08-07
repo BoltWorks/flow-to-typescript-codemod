@@ -30,7 +30,7 @@ type User = {
   name: string,
   age: number
 };
-type OptionalUser = Partial<User>;
+type OptionalUser = User;
 
 // Mixed
 function stringifyNum(num: number) {

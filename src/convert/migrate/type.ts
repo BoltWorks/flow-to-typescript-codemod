@@ -185,7 +185,7 @@ function actuallyMigrateType(
         params &&
         params.params.length === 1
       ) {
-        return t.tsTypeReference(t.identifier("Partial"), params);
+        return params.params[0];
       }
 
       // `MapOf<T> → `Record<string, T>`
